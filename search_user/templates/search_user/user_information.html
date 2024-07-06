@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Информация о человеке</h1>
+    <a href="/">Главная</a>
+    <hr>
+    <p>ФИО: {{ info_user.fio }}</p>
+    <p>Страна: {{ info_user.country }}</p>
+    <p>Адрес: {{ info_user.address }}</p>
+    <p>Телефон: {{ info_user.telephone }}</p>
+    <p>Описание: {{ info_user.description }}</p>
+    {% if user.is_authenticated %}
+        {% if user.is_superuser %}
+            <a href="/delete/{{ info_user.id }}">Удалить запись</a>
+        {% endif %}
+    {% endif %}
+</body>
+</html>

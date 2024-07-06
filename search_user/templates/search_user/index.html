@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Страница поиска</h1>
+    {% if user.is_authenticated and user.is_superuser %}
+        <a href="/logout">Выйти из аккаунта</a>
+        <br>
+        <a href="/create">Добавить информацию о человеке</a>
+    {% else %}
+        <a href="/login">Войти в аккаунт</a>
+    {% endif %}
+    <hr>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label>ФИО:</label><br>
+        <input type="text" name="fio"><br>
+        <label>Страна:</label><br>
+        <input type="text" name="country"><br>
+        <label>Город, улица:</label><br>
+        <input type="text" name="address"><br>
+        <label>Телефон:</label><br>
+        <input type="text" name="telephone"><br>
+        <label>Описание:</label><br>
+        <input type="text" name="description"><br>
+        <input type="submit" value="Найти">
+      </form>
+</body>
+</html>
